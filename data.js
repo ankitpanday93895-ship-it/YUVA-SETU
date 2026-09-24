@@ -12,13 +12,11 @@ const BRANCHES = [
   "Biomedical Engineering"
 ];
 
-
 // ==========================================
 // DEFAULT GOVERNMENT INDUSTRY DATA
 // ==========================================
 
 const DEFAULT_INDUSTRY_DATA = [
-
   {
     id: "IND001",
     company: "Demo Automation Systems",
@@ -136,86 +134,54 @@ const DEFAULT_INDUSTRY_DATA = [
     demandLevel: "High",
     status: "Active"
   }
-
 ];
-
 
 // ==========================================
 // BASIC STORAGE FUNCTIONS
 // ==========================================
 
 function readData(key, fallback = []) {
-
   try {
-
-    const value =
-      localStorage.getItem(key);
+    const value = localStorage.getItem(key);
 
     if (!value) {
       return fallback;
     }
 
     return JSON.parse(value);
-
   } catch (error) {
-
-    console.error(
-      "Storage read error:",
-      error
-    );
-
+    console.error("Storage read error:", error);
     return fallback;
   }
 }
 
-
 function writeData(key, data) {
-
   localStorage.setItem(
     key,
     JSON.stringify(data)
   );
 }
 
-
 // ==========================================
 // INITIAL DATABASE
 // ==========================================
 
 function initializeYuvaSetu() {
-
-  if (
-    !localStorage.getItem(
-      "yuvaIndustryData"
-    )
-  ) {
-
+  if (!localStorage.getItem("yuvaIndustryData")) {
     writeData(
       "yuvaIndustryData",
       DEFAULT_INDUSTRY_DATA
     );
   }
 
-
-  if (
-    !localStorage.getItem(
-      "yuvaStudents"
-    )
-  ) {
-
+  if (!localStorage.getItem("yuvaStudents")) {
     writeData(
       "yuvaStudents",
       []
     );
   }
 
-
-  if (
-    !localStorage.getItem(
-      "yuvaInstitutes"
-    )
-  ) {
-
+  if (!localStorage.getItem("yuvaInstitutes")) {
     writeData(
       "yuvaInstitutes",
       []
@@ -223,74 +189,59 @@ function initializeYuvaSetu() {
   }
 }
 
-
 initializeYuvaSetu();
-
 
 // ==========================================
 // GET / SAVE
 // ==========================================
 
 function getStudents() {
-
   return readData(
     "yuvaStudents",
     []
   );
 }
-
 
 function saveStudents(data) {
-
   writeData(
     "yuvaStudents",
     data
   );
 }
 
-
 function getInstitutes() {
-
   return readData(
     "yuvaInstitutes",
     []
   );
 }
-
 
 function saveInstitutes(data) {
-
   writeData(
     "yuvaInstitutes",
     data
   );
 }
 
-
 function getIndustryData() {
-
   return readData(
     "yuvaIndustryData",
     []
   );
 }
 
-
 function saveIndustryData(data) {
-
   writeData(
     "yuvaIndustryData",
     data
   );
 }
-
 
 // ==========================================
 // UTILITIES
 // ==========================================
 
 function generateId(prefix) {
-
   return (
     prefix +
     "-" +
@@ -298,123 +249,104 @@ function generateId(prefix) {
   );
 }
 
-
 function skillArray(value) {
-
   if (Array.isArray(value)) {
-
     return value
-      .map(skill =>
-        String(skill).trim()
+      .map(
+        (skill) =>
+          String(skill).trim()
       )
       .filter(Boolean);
   }
 
-
   return String(value || "")
     .split(",")
-    .map(skill =>
-      skill.trim()
+    .map(
+      (skill) =>
+        skill.trim()
     )
     .filter(Boolean);
 }
 
-
 function populateBranchSelect(id) {
-
   const select =
     document.getElementById(id);
-
 
   if (!select) {
     return;
   }
 
-
   select.innerHTML = `
-
     <option value="">
       -- Select Branch --
     </option>
-
   `;
 
+  BRANCHES.forEach(
+    (branch) => {
+      const option =
+        document.createElement(
+          "option"
+        );
 
-  BRANCHES.forEach(branch => {
+      option.value =
+        branch;
 
-    const option =
-      document.createElement(
-        "option"
+      option.textContent =
+        branch;
+
+      select.appendChild(
+        option
       );
-
-
-    option.value =
-      branch;
-
-
-    option.textContent =
-      branch;
-
-
-    select.appendChild(
-      option
-    );
-
-  });
+    }
+  );
 }
-
 
 function compareSkills(
   currentSkills,
   requiredSkills
 ) {
-
   const current =
     skillArray(currentSkills);
-
 
   const required =
     skillArray(requiredSkills);
 
-
   const currentLower =
-    current.map(skill =>
-      skill.toLowerCase()
+    current.map(
+      (skill) =>
+        skill.toLowerCase()
     );
-
 
   const requiredLower =
-    required.map(skill =>
-      skill.toLowerCase()
+    required.map(
+      (skill) =>
+        skill.toLowerCase()
     );
-
 
   const matched =
     required.filter(
-      skill =>
+      (skill) =>
         currentLower.includes(
           skill.toLowerCase()
         )
     );
 
-
   const missing =
     required.filter(
-      skill =>
+      (skill) =>
         !currentLower.includes(
           skill.toLowerCase()
         )
     );
 
-
   const additional =
     current.filter(
-      skill =>
+      (skill) =>
         !requiredLower.includes(
           skill.toLowerCase()
         )
     );
-
 
   const percentage =
     required.length === 0
@@ -426,20 +358,15 @@ function compareSkills(
           ) * 100
         );
 
-
   return {
-
     percentage,
     matched,
     missing,
     additional
-
   };
 }
 
-
 function escapeHTML(value) {
-
   return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
