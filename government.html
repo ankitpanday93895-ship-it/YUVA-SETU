@@ -1,1 +1,760 @@
+<!DOCTYPE html>
 
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Government Portal | YUVA SETU
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+  <a
+    href="index.html"
+    class="brand"
+  >
+    YUVA <span>SETU</span>
+  </a>
+
+
+  <div class="nav-links">
+
+    <a href="index.html">
+      Home
+    </a>
+
+  </div>
+
+</nav>
+
+
+
+<!-- ==================================================
+     GOVERNMENT LOGIN
+================================================== -->
+
+<section
+  id="governmentAuth"
+  class="login-shell"
+>
+
+  <div class="login-card">
+
+
+    <div class="login-symbol">
+      🏛️
+    </div>
+
+
+    <h1>
+      Government Portal
+    </h1>
+
+
+    <p class="login-subtitle">
+
+      Authorized Government/Admin Login
+
+    </p>
+
+
+    <form id="governmentLoginForm">
+
+
+      <div class="form-group">
+
+        <label>
+          Username
+        </label>
+
+        <input
+          type="text"
+          id="governmentUsername"
+          placeholder="Enter username"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Password
+        </label>
+
+        <input
+          type="password"
+          id="governmentPassword"
+          placeholder="Enter password"
+          required
+        >
+
+      </div>
+
+
+      <p
+        id="governmentLoginError"
+        class="login-error"
+      ></p>
+
+
+      <button
+        type="submit"
+        class="btn btn-primary btn-block"
+      >
+        Login
+      </button>
+
+
+    </form>
+
+
+    <div class="alert alert-info">
+
+      Demo Login:<br>
+
+      Username:
+      <strong>
+        govtadmin
+      </strong>
+
+      <br>
+
+      Password:
+      <strong>
+        Yuva@123
+      </strong>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     GOVERNMENT APP
+================================================== -->
+
+<div
+  id="governmentApp"
+  class="hidden"
+>
+
+
+  <div class="page-header">
+
+    <h1>
+      🏛️ Government / Admin Dashboard
+    </h1>
+
+    <p>
+
+      Central monitoring and
+      data management portal.
+
+    </p>
+
+  </div>
+
+
+  <main class="container">
+
+
+    <div class="dashboard-top">
+
+      <p class="welcome-text">
+
+        YUVA SETU Central Administration
+
+      </p>
+
+
+      <button
+        type="button"
+        id="governmentLogout"
+        class="btn btn-danger"
+      >
+        Logout
+      </button>
+
+    </div>
+
+
+
+    <!-- STATS -->
+
+    <div
+      id="governmentStats"
+      class="stats-grid"
+    ></div>
+
+
+
+    <!-- TABS -->
+
+    <div class="tabs">
+
+
+      <button
+        type="button"
+        class="tab-btn active"
+        data-target="governmentStudentPanel"
+      >
+        🎓 Student Data
+      </button>
+
+
+      <button
+        type="button"
+        class="tab-btn"
+        data-target="governmentIndustryPanel"
+      >
+        🏢 Industry Data
+      </button>
+
+
+      <button
+        type="button"
+        class="tab-btn"
+        data-target="governmentInstitutePanel"
+      >
+        🏫 Institute Data
+      </button>
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         STUDENT DATA
+    ================================================== -->
+
+    <section
+      id="governmentStudentPanel"
+      class="tab-panel active"
+    >
+
+      <div class="card">
+
+
+        <div class="card-title">
+
+          <h2>
+            Student Data
+          </h2>
+
+          <p>
+
+            Student profiles and
+            skill-comparison results
+            submitted through Student Portal.
+
+          </p>
+
+        </div>
+
+
+        <div class="table-wrap">
+
+
+          <table>
+
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  Student
+                </th>
+
+                <th>
+                  Course
+                </th>
+
+                <th>
+                  Branch
+                </th>
+
+                <th>
+                  University
+                </th>
+
+                <th>
+                  Current Skills
+                </th>
+
+                <th>
+                  Target Role
+                </th>
+
+                <th>
+                  Match
+                </th>
+
+                <th>
+                  Missing Skills
+                </th>
+
+                <th>
+                  Additional Skills
+                </th>
+
+                <th>
+                  Updated
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody
+              id="governmentStudentTable"
+            >
+            </tbody>
+
+
+          </table>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         INDUSTRY DATA
+    ================================================== -->
+
+    <section
+      id="governmentIndustryPanel"
+      class="tab-panel"
+    >
+
+
+      <!-- FORM -->
+
+      <div class="card">
+
+
+        <div class="card-title">
+
+          <h2>
+            Add / Update Industry Data
+          </h2>
+
+          <p>
+
+            These job roles and skills
+            will be used for Student
+            Skill Comparison and
+            Institute Industry Trends.
+
+          </p>
+
+        </div>
+
+
+        <input
+          type="hidden"
+          id="industryEditId"
+        >
+
+
+        <div class="form-grid">
+
+
+          <div class="form-group">
+
+            <label>
+              Company / Industry Name
+            </label>
+
+            <input
+              id="industryCompany"
+              placeholder="Company name"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Industry Sector
+            </label>
+
+            <input
+              id="industrySector"
+              placeholder="Automation / IT / Manufacturing..."
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Related Branch
+            </label>
+
+            <select id="industryBranch">
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Job Role
+            </label>
+
+            <input
+              id="industryJobRole"
+              placeholder="Example: Automation Engineer"
+            >
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label>
+              Required Skills
+            </label>
+
+            <input
+              id="industryRequiredSkills"
+              placeholder="PLC, SCADA, Sensors, Python"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Number of Vacancies
+            </label>
+
+            <input
+              type="number"
+              id="industryVacancies"
+              min="0"
+              value="1"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Demand Level
+            </label>
+
+            <select id="industryDemand">
+
+              <option value="High">
+                High
+              </option>
+
+              <option value="Medium">
+                Medium
+              </option>
+
+              <option value="Low">
+                Low
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Status
+            </label>
+
+            <select id="industryStatus">
+
+              <option value="Active">
+                Active
+              </option>
+
+              <option value="Inactive">
+                Inactive
+              </option>
+
+            </select>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="button-row">
+
+
+          <button
+            type="button"
+            id="saveIndustryData"
+            class="btn btn-primary"
+          >
+            Save Industry Data
+          </button>
+
+
+          <button
+            type="button"
+            id="clearIndustryForm"
+            class="btn btn-secondary"
+          >
+            Clear Form
+          </button>
+
+
+        </div>
+
+
+        <div id="industrySaveMessage">
+        </div>
+
+
+      </div>
+
+
+
+      <!-- TABLE -->
+
+      <div class="card">
+
+
+        <div class="card-title">
+
+          <h2>
+            Industry Database
+          </h2>
+
+          <p>
+
+            Government/Admin controlled
+            industry requirement records.
+
+          </p>
+
+        </div>
+
+
+        <div class="table-wrap">
+
+
+          <table>
+
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  Company
+                </th>
+
+                <th>
+                  Sector
+                </th>
+
+                <th>
+                  Branch
+                </th>
+
+                <th>
+                  Job Role
+                </th>
+
+                <th>
+                  Required Skills
+                </th>
+
+                <th>
+                  Vacancies
+                </th>
+
+                <th>
+                  Demand
+                </th>
+
+                <th>
+                  Status
+                </th>
+
+                <th>
+                  Action
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody
+              id="governmentIndustryTable"
+            >
+            </tbody>
+
+
+          </table>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         INSTITUTE DATA
+    ================================================== -->
+
+    <section
+      id="governmentInstitutePanel"
+      class="tab-panel"
+    >
+
+
+      <div class="card">
+
+
+        <div class="card-title">
+
+          <h2>
+            Institute Data
+          </h2>
+
+          <p>
+
+            Institute profiles and
+            currently taught skill data.
+
+          </p>
+
+        </div>
+
+
+        <div class="table-wrap">
+
+
+          <table>
+
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  Institute
+                </th>
+
+                <th>
+                  Department
+                </th>
+
+                <th>
+                  Branch
+                </th>
+
+                <th>
+                  Course
+                </th>
+
+                <th>
+                  Skills Taught
+                </th>
+
+                <th>
+                  Training Programs
+                </th>
+
+                <th>
+                  Labs
+                </th>
+
+                <th>
+                  Updated
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody
+              id="governmentInstituteTable"
+            >
+            </tbody>
+
+
+          </table>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+</div>
+
+
+
+<script src="js/data.js"></script>
+
+<script src="js/government.js"></script>
+
+
+</body>
+
+</html>
