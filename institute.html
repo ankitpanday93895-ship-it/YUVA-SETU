@@ -1,1 +1,582 @@
+<!DOCTYPE html>
 
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Institute Portal | YUVA SETU
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+  <a
+    href="index.html"
+    class="brand"
+  >
+    YUVA <span>SETU</span>
+  </a>
+
+
+  <div class="nav-links">
+
+    <a href="index.html">
+      Home
+    </a>
+
+  </div>
+
+</nav>
+
+
+
+<!-- ==================================================
+     INSTITUTE AUTH
+================================================== -->
+
+<section
+  id="instituteAuth"
+  class="login-shell"
+>
+
+  <div class="login-card">
+
+
+    <div class="login-symbol">
+      🏫
+    </div>
+
+
+    <h1>
+      Institute Portal
+    </h1>
+
+
+    <p class="login-subtitle">
+
+      Register or login
+      to manage institute skill data.
+
+    </p>
+
+
+    <div class="auth-switch">
+
+
+      <button
+        type="button"
+        id="instituteLoginTab"
+        class="auth-tab active"
+      >
+        Login
+      </button>
+
+
+      <button
+        type="button"
+        id="instituteRegisterTab"
+        class="auth-tab"
+      >
+        Register
+      </button>
+
+
+    </div>
+
+
+
+    <!-- LOGIN -->
+
+    <form id="instituteLoginForm">
+
+
+      <div class="form-group">
+
+        <label>
+          Official Email
+        </label>
+
+        <input
+          type="email"
+          id="instituteLoginEmail"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Password
+        </label>
+
+        <input
+          type="password"
+          id="instituteLoginPassword"
+          required
+        >
+
+      </div>
+
+
+      <p
+        id="instituteLoginError"
+        class="login-error"
+      ></p>
+
+
+      <button
+        type="submit"
+        class="btn btn-primary btn-block"
+      >
+        Login
+      </button>
+
+
+      <p class="auth-message">
+
+        First time?
+
+        <button
+          type="button"
+          id="instituteOpenRegister"
+          class="text-button"
+        >
+          Register
+        </button>
+
+      </p>
+
+
+    </form>
+
+
+
+    <!-- REGISTER -->
+
+    <form
+      id="instituteRegisterForm"
+      class="hidden"
+    >
+
+
+      <div class="form-group">
+
+        <label>
+          Institute Name
+        </label>
+
+        <input
+          type="text"
+          id="instituteRegisterName"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Official Email
+        </label>
+
+        <input
+          type="email"
+          id="instituteRegisterEmail"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Password
+        </label>
+
+        <input
+          type="password"
+          id="instituteRegisterPassword"
+          minlength="6"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Confirm Password
+        </label>
+
+        <input
+          type="password"
+          id="instituteConfirmPassword"
+          minlength="6"
+          required
+        >
+
+      </div>
+
+
+      <p
+        id="instituteRegisterError"
+        class="login-error"
+      ></p>
+
+
+      <button
+        type="submit"
+        class="btn btn-primary btn-block"
+      >
+        Create Institute Account
+      </button>
+
+
+      <p class="auth-message">
+
+        Already registered?
+
+        <button
+          type="button"
+          id="instituteOpenLogin"
+          class="text-button"
+        >
+          Login
+        </button>
+
+      </p>
+
+
+    </form>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     INSTITUTE DASHBOARD
+================================================== -->
+
+<div
+  id="instituteApp"
+  class="hidden"
+>
+
+
+  <div class="page-header">
+
+    <h1>
+      🏫 Institute Dashboard
+    </h1>
+
+    <p>
+
+      Update skills currently
+      taught and monitor industry demand.
+
+    </p>
+
+  </div>
+
+
+  <main class="container">
+
+
+    <div class="dashboard-top">
+
+      <p
+        id="instituteWelcome"
+        class="welcome-text"
+      ></p>
+
+
+      <button
+        type="button"
+        id="instituteLogout"
+        class="btn btn-secondary"
+      >
+        Logout
+      </button>
+
+    </div>
+
+
+
+    <!-- PROFILE -->
+
+    <section class="card">
+
+
+      <div class="card-title">
+
+        <h2>
+          Institute Profile
+        </h2>
+
+        <p>
+
+          Saved information will
+          appear in Government
+          → Institute Data.
+
+        </p>
+
+      </div>
+
+
+      <div class="form-grid">
+
+
+        <div class="form-group">
+
+          <label>
+            Institute Name
+          </label>
+
+          <input
+            id="instituteName"
+            placeholder="Institute name"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Official Email
+          </label>
+
+          <input
+            id="instituteEmail"
+            readonly
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Department
+          </label>
+
+          <input
+            id="instituteDepartment"
+            placeholder="Department name"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Branch
+          </label>
+
+          <select id="instituteBranch">
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Course
+          </label>
+
+          <input
+            id="instituteCourse"
+            placeholder="Example: B.Tech"
+          >
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label>
+            Skills Currently Taught
+          </label>
+
+          <input
+            id="instituteSkills"
+            placeholder="Example: PLC, IoT, Sensors, C"
+          >
+
+          <p class="help-text">
+
+            Separate skills using commas.
+
+          </p>
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label>
+            Training Programs
+          </label>
+
+          <textarea
+            id="instituteTraining"
+            placeholder="Workshops, practical sessions, certifications..."
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label>
+            Available Labs
+          </label>
+
+          <textarea
+            id="instituteLabs"
+            placeholder="Example: Embedded Lab, PLC Lab, IoT Lab"
+          ></textarea>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="button-row">
+
+        <button
+          type="button"
+          id="saveInstituteProfile"
+          class="btn btn-primary"
+        >
+          Save / Update Institute Data
+        </button>
+
+      </div>
+
+
+      <div id="instituteSaveMessage">
+      </div>
+
+
+    </section>
+
+
+
+    <!-- INDUSTRY ROLES -->
+
+    <section class="card">
+
+
+      <div class="card-title">
+
+        <h2>
+          Industry Job Roles
+        </h2>
+
+        <p>
+
+          Active job-role information
+          for the selected branch.
+
+        </p>
+
+      </div>
+
+
+      <div id="instituteJobRoles">
+
+        <div class="alert alert-info">
+
+          Select a branch first.
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- INDUSTRY SKILLS -->
+
+    <section class="card">
+
+
+      <div class="card-title">
+
+        <h2>
+          Industry Skill Demand
+        </h2>
+
+        <p>
+
+          Compare current institute skills
+          with Government-managed
+          industry requirements.
+
+        </p>
+
+      </div>
+
+
+      <div id="instituteTrends">
+
+        <div class="alert alert-info">
+
+          Select a branch first.
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+</div>
+
+
+
+<script src="js/data.js"></script>
+
+<script src="js/institute.js"></script>
+
+
+</body>
+
+</html>
