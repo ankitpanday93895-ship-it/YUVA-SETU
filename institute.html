@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Institute | YUVA SETU
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+  <a
+    href="index.html"
+    class="brand"
+  >
+    YUVA <span>SETU</span>
+  </a>
+
+  <div class="nav-links">
+
+    <a href="index.html">
+      Home
+    </a>
+
+  </div>
+
+</nav>
+
+
+
+<section
+  id="instituteLogin"
+  class="login-shell"
+>
+
+  <div class="login-card">
+
+    <div class="login-symbol">
+      🏫
+    </div>
+
+    <h1>
+      Institute Login
+    </h1>
+
+    <p>
+      Update institute skills and
+      view current industry demand.
+    </p>
+
+
+    <form id="instituteLoginForm">
+
+      <div class="form-group">
+
+        <label>
+          Official Email
+        </label>
+
+        <input
+          type="email"
+          id="instituteLoginEmail"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Password
+        </label>
+
+        <input
+          type="password"
+          id="instituteLoginPassword"
+          required
+        >
+
+      </div>
+
+
+      <p
+        id="instituteLoginError"
+        class="login-error"
+      ></p>
+
+
+      <button
+        class="btn btn-primary btn-block"
+        type="submit"
+      >
+        Login / Continue
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+
+<div
+  id="instituteApp"
+  class="hidden"
+>
+
+
+  <div class="page-header">
+
+    <h1>
+      🏫 Institute Dashboard
+    </h1>
+
+    <p>
+      Update skills currently taught
+      and monitor industry skill demand.
+    </p>
+
+  </div>
+
+
+  <main class="container">
+
+
+    <div class="card">
+
+      <div class="card-title">
+
+        <h2>
+          Institute Profile
+        </h2>
+
+        <p>
+          Saved data will appear in
+          Government → Institute Data.
+        </p>
+
+      </div>
+
+
+      <div class="form-grid">
+
+
+        <div class="form-group">
+
+          <label>
+            Institute Name
+          </label>
+
+          <input
+            id="instituteName"
+            placeholder="Institute name"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Official Email
+          </label>
+
+          <input
+            id="instituteEmail"
+            readonly
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Department
+          </label>
+
+          <input
+            id="instituteDepartment"
+            placeholder="Department name"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Branch
+          </label>
+
+          <select id="instituteBranch">
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Course
+          </label>
+
+          <input
+            id="instituteCourse"
+            placeholder="B.Tech"
+          >
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label>
+            Skills Currently Taught
+          </label>
+
+          <input
+            id="instituteSkills"
+            placeholder="Example: PLC, IoT, Sensors, C"
+          >
+
+          <div class="help-text">
+            Separate skills using commas.
+          </div>
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label>
+            Training Programs
+          </label>
+
+          <textarea
+            id="instituteTraining"
+            placeholder="Workshops / practical training / certifications"
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label>
+            Available Labs
+          </label>
+
+          <textarea
+            id="instituteLabs"
+            placeholder="PLC Lab, Embedded Lab, IoT Lab..."
+          ></textarea>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="button-row">
+
+        <button
+          class="btn btn-primary"
+          id="saveInstitute"
+        >
+          Save / Update Data
+        </button>
+
+
+        <button
+          class="btn btn-secondary"
+          id="instituteLogout"
+        >
+          Logout
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <div class="card-title">
+
+        <h2>
+          Industry Skill Demand
+        </h2>
+
+        <p>
+          This information is read from
+          Government → Industry Data.
+        </p>
+
+      </div>
+
+
+      <div id="industryTrends">
+
+        <div class="alert alert-info">
+          Select your Branch to view industry demand.
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </main>
+
+</div>
+
+
+
+<script src="js/data.js"></script>
+
+<script src="js/institute.js"></script>
+
+
+</body>
+
+</html>
